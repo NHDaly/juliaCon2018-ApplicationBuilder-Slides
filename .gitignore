@@ -1,0 +1,12 @@
+# vim
+*~
+*.swp
+
+# python
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints
+
+# Outputs
+playground
