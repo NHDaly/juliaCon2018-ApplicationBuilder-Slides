@@ -1,6 +1,14 @@
 julia 0.6
+
+# For ApplicationBuilder
 Compat
 PackageCompiler
 Glob
 ArgParse
 Compat
+
+# For the rest of the .ipynb:
+PrintFileTree
+UnicodePlots
+Plots
+Blink
