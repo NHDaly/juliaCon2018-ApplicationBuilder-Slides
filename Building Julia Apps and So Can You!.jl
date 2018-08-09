@@ -7,12 +7,14 @@ Pkg.add("UnicodePlots")  # Only needed for the demo application.
 Pkg.add("Plots");  # Only needed for the GUI example at the end.
 Pkg.add("Blink"); using Blink; Blink.AtomShell.install()  # Only needed if you want to run the GUI example at the end.
 
-mkpath("OurProject"); cd("OurProject")
-run(`pwd`)
+mkpath("OurProject")
 
-mkpath("src")  # For OurProject's source code
+mkpath("OurProject/src")  # For OurProject's source code
 
-write("src/project.jl",
+using PrintFileTree
+printfiletree("OurProject")
+
+write("OurProject/src/project.jl",
  """
     using UnicodePlots
 
@@ -24,13 +26,13 @@ write("src/project.jl",
  """
 )
 
-include("src/project.jl")
+include("OurProject/src/project.jl")
 
  using ApplicationBuilder; using BuildApp  # BuildApp was installed automatically, "next to" ApplicationBuilder.
 
-build_app_bundle("src/project.jl")
+build_app_bundle("OurProject/src/project.jl")
 
-write("src/project.jl",
+write("OurProject/src/project.jl",
  """
     using UnicodePlots
     
@@ -48,11 +50,12 @@ write("src/project.jl",
  """
 )
 
-build_app_bundle("src/project.jl",
+build_app_bundle("OurProject/src/project.jl",
                  appname="HelloWorld",
+                 builddir="OurProject/builds",
                  commandline_app=true)
 
-run(`open ./builddir`)
+run(`open ./OurProject`)
 
 using Blink
 
@@ -120,14 +123,14 @@ end
 
 Blink.handlers(win)["sliderChange"] = sliderChange
 
-write("src/project.jl",
+write("OurProject/src/project.jl",
  raw"""
     using Blink, Plots
     plotly()
 
     Base.@ccallable function julia_main(ARGS::Vector{String})::Cint
-        win = Window(); sleep(2)
-        body!(win, \"\"\"
+        win = Blink.Window(); sleep(2)
+        Blink.body!(win, \"\"\"
             <input id="mySlider" type="range" min="1" max="100" value="50">
             <div id="plotHolder">
                 plot goes here...
@@ -137,7 +140,7 @@ write("src/project.jl",
                 var Plotly = require('$(Plots._plotly_js_path)');
             </script>
         \"\"\"); sleep(2)
-        tools(win)
+        Blink.tools(win)
 
         Blink.@js_ win console.log("HELLO!")
         Blink.@js_ win mySlider.oninput = 
@@ -158,7 +161,7 @@ write("src/project.jl",
         Blink.handlers(win)["sliderChange"] = sliderChange
     
         # Keep the process alive until the window is closed!
-        while active(win)
+        while Blink.active(win)
             sleep(1)
         end
 
@@ -168,14 +171,15 @@ write("src/project.jl",
 )
 
 build_app_bundle(
-    "src/project.jl",
+    "OurProject/src/project.jl",
     appname="SinePlotter",  # New App name
+    builddir="OurProject/builds",
 )
 
-run(`open /Users/daly/Documents/developer/talks/jupyter/OurProject/builddir/SinePlotter.app`)
+run(`open /Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotter.app`)
 
 # Apply that to our program, and this is what we have:
-write("src/project.jl",
+write("OurProject/src/project.jl",
  raw"""
     using Blink, Plots
     using ApplicationBuilder
@@ -202,7 +206,11 @@ write("src/project.jl",
         eval(WebSockets,
             :(include(joinpath(Pkg.dir("WebSockets"),"src/HttpServer.jl"))))  # Manually load this from the @requires line.
 
-        println("Done changing dependencies.")
+        println("Done changing Blink dependencies.")
+        
+        println("Overriding Plotly dependency paths.")
+        eval(Plots, :(_plotly_js_path = "plotly-latest.min.js"))
+        println("Done changing Plotly dependencies.")
     end
     
     Base.@ccallable function julia_main(ARGS::Vector{String})::Cint
@@ -210,10 +218,13 @@ write("src/project.jl",
         ApplicationBuilder.App.change_dir_if_bundle()
 
         # This must be inside app_main() b/c must be after `change_dir_if_bundle()`
-        plotly()
+        Plots.plotly()
 
-        win = Window(); sleep(5)
-        body!(win, \"\"\"
+        # Set Blink port randomly before anything else, so it's not compiled with a fixed port.
+        eval(Blink, :(const port = get(ENV, "BLINK_PORT", rand(2_000:10_000))))
+
+        win = Blink.Window(); sleep(5)
+        Blink.body!(win, \"\"\"
             <input id="mySlider" type="range" min="1" max="100" value="50">
             <div id="plotHolder">
                 plot goes here...
@@ -223,7 +234,7 @@ write("src/project.jl",
                 var Plotly = require('../../../../../$(Plots._plotly_js_path)');
             </script>
         \"\"\"); sleep(2)
-        tools(win)
+        Blink.tools(win)
 
         Blink.@js_ win console.log("HELLO!")
         Blink.@js_ win mySlider.oninput = 
@@ -244,7 +255,7 @@ write("src/project.jl",
         Blink.handlers(win)["sliderChange"] = sliderChange
     
         # Keep the process alive until the window is closed!
-        while active(win)
+        while Blink.active(win)
             sleep(1)
         end
 
@@ -260,8 +271,9 @@ blinkPkg = Pkg.dir("Blink")
 macroToolsPkg = Pkg.dir("MacroTools")
 
 build_app_bundle(
-    "src/project.jl",
+    "OurProject/src/project.jl",
     appname="SinePlotterBundled",
+    builddir="OurProject/builds",
     resources = [
         # Blink resources
         joinpath(blinkPkg, "deps","Julia.app"),
@@ -277,4 +289,4 @@ build_app_bundle(
     ],
 )
 
-run(`open /Users/daly/Documents/developer/talks/jupyter/OurProject/builddir/SinePlotterBundled.app`)
+run(`open /Users/daly/Documents/developer/talks/jupyter/OurProject/builds/`)
