@@ -176,7 +176,7 @@ build_app_bundle(
     builddir="OurProject/builds",
 )
 
-run(`open /Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotter.app`)
+run(`open OurProject/builds/SinePlotter.app`)
 
 # Apply that to our program, and this is what we have:
 write("OurProject/src/project.jl",
@@ -289,4 +289,4 @@ build_app_bundle(
     ],
 )
 
-run(`open /Users/daly/Documents/developer/talks/jupyter/OurProject/builds/`)
+run(`open OurProject/builds/`)
