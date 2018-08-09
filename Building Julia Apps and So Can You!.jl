@@ -11,9 +11,6 @@ mkpath("OurProject")
 
 mkpath("OurProject/src")  # For OurProject's source code
 
-using PrintFileTree
-printfiletree("OurProject")
-
 write("OurProject/src/project.jl",
  """
     using UnicodePlots
@@ -25,6 +22,9 @@ write("OurProject/src/project.jl",
     println("Current working directory:", pwd())
  """
 )
+
+using PrintFileTree
+printfiletree("OurProject")
 
 include("OurProject/src/project.jl")
 
