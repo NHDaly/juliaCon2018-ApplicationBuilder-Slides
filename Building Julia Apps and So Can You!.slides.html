@@ -11959,6 +11959,18 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On Julia v0.7:</p>
+<div class="highlight"><pre><span></span><span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NHDaly</span><span class="o">/</span><span class="n">ApplicationBuilder</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span><span class="c">#julia0.7</span>
+<span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NHDaly</span><span class="o">/</span><span class="n">ApplicationBuilderRuntimeUtils</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+
+</div>
+</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12647,6 +12659,23 @@ All done
 </div>
 </div>
 
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One more note on compiling: Snoopfiles!</p>
+<p>In order to see a <em>speed up</em> from compiling, you have to <em>fully compile</em> your code to native instructions, not just lower it to an AST. <code>snoop</code> == tell julia what to compile.</p>
+<div class="highlight"><pre><span></span><span class="n">build_app_bundle</span><span class="p">(</span>
+    <span class="s">&quot;OurProject/src/project.jl&quot;</span><span class="p">,</span>
+    <span class="n">autosnoop</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span>  <span class="c"># &lt;----- Added this yesterday...</span>
+  <span class="c"># or:</span>
+    <span class="n">snoopfile</span><span class="o">=</span><span class="s">&quot;project_snoopfile.jl&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
 </div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -13088,7 +13117,19 @@ msg from js: 100
 </div>
 </div>
 
-</div></section><section>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that it still is pretty slow.</p>
+<p>I think this is mainly because we haven't statically-compiled anything (we've only lowered our code) because we're not using any snoop-compiling. However, <code>autosnoop</code> fails for Blink programs right now.</p>
+
+</div>
+</div>
+</div>
+</aside></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -13250,7 +13291,7 @@ All done
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="sb">`open /Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotter.app`</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="sb">`open OurProject/builds/SinePlotter.app`</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13503,7 +13544,7 @@ All done
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="sb">`open /Users/daly/Documents/developer/talks/jupyter/OurProject/builds/`</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="sb">`open OurProject/builds/`</span><span class="p">)</span>
 </pre></div>
 
 </div>
