@@ -28,7 +28,7 @@ printfiletree("OurProject")
 
 include("OurProject/src/project.jl")
 
- using ApplicationBuilder; using BuildApp  # BuildApp was installed automatically, "next to" ApplicationBuilder.
+ using ApplicationBuilder
 
 build_app_bundle("OurProject/src/project.jl")
 
@@ -182,7 +182,6 @@ run(`open OurProject/builds/SinePlotter.app`)
 write("OurProject/src/project.jl",
  raw"""
     using Blink, Plots
-    using ApplicationBuilder
 
     # THIS IS NEEDED FOR YOUR CODE TO RUN ON ANY COMPUTER
     if get(ENV, "COMPILING_APPLE_BUNDLE", "false") == "true"
@@ -214,10 +213,7 @@ write("OurProject/src/project.jl",
     end
     
     Base.@ccallable function julia_main(ARGS::Vector{String})::Cint
-        # THIS IS NEEDED FOR YOUR CODE TO RUN ON ANY COMPUTER
-        ApplicationBuilder.App.change_dir_if_bundle()
-
-        # This must be inside app_main() b/c must be after `change_dir_if_bundle()`
+        # This must be inside app_main() so it happens at runtime.
         Plots.plotly()
 
         # Set Blink port randomly before anything else, so it's not compiled with a fixed port.
@@ -265,7 +261,7 @@ write("OurProject/src/project.jl",
 )
 
 # Build a distributable SinPlotter.app!
-using ApplicationBuilder; using BuildApp
+using ApplicationBuilder
 using Blink, Plots
 blinkPkg = Pkg.dir("Blink")
 macroToolsPkg = Pkg.dir("MacroTools")

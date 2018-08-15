@@ -36,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -58,7 +58,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -11710,10 +11710,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11724,11 +11722,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11776,6 +11772,7 @@ ul.typeahead-list > li > a {
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
   font-size: 160%;
+  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -11805,41 +11802,6 @@ ul.typeahead-list > li > a {
 }
 .reveal .progress {
   position: static;
-}
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
 }
 div.input_area {
   padding: 0.06em;
@@ -11874,19 +11836,6 @@ a.anchor-link {
 .rendered_html p {
   text-align: inherit;
 }
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar *
-{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb
-{
-  background: #727272 !important;
-}
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
@@ -11901,7 +11850,8 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11914,20 +11864,24 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-  <h2 id="This-Notebook">This Notebook<a class="anchor-link" href="#This-Notebook">&#182;</a></h2><p>Most of this presentation is in the form of an interactive jupyter notebook. If you've downloaded it (<a href="https://github.com/NHDaly/juliaCon2018-ApplicationBuilder-Slides">here</a>), you can open the notebook like this:</p>
+<h2 id="This-Notebook">This Notebook<a class="anchor-link" href="#This-Notebook">&#182;</a></h2><p>Most of this presentation is in the form of an interactive jupyter notebook. If you've downloaded it (<a href="https://github.com/NHDaly/juliaCon2018-ApplicationBuilder-Slides">here</a>), you can open the notebook like this:</p>
 <div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">IJulia</span><span class="p">;</span> <span class="n">IJulia</span><span class="o">.</span><span class="n">notebook</span><span class="p">()</span>
 </pre></div>
 <p>Then double click the file you downloaded.</p>
+<p><strong>NOTE:</strong> These slides have been updated slightly to reflect changes made to ApplicationBuilder during JuilaCon2018, after my talk. :) To get the <em>exact</em> version from the talk, please see this commit:<br>
+<a href="https://github.com/NHDaly/juliaCon2018-ApplicationBuilder-Slides/tree/5619bf0a662a3a12fa82e691f168eebd20d6e6a0/">https://github.com/NHDaly/juliaCon2018-ApplicationBuilder-Slides/tree/5619bf0a662a3a12fa82e691f168eebd20d6e6a0/</a></p>
 
 </div>
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11960,19 +11914,21 @@ a.anchor-link {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>On Julia v0.7:</p>
-<div class="highlight"><pre><span></span><span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NHDaly</span><span class="o">/</span><span class="n">ApplicationBuilder</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span><span class="c">#julia0.7</span>
-<span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NHDaly</span><span class="o">/</span><span class="n">ApplicationBuilderRuntimeUtils</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight"><pre><span></span><span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NHDaly</span><span class="o">/</span><span class="n">ApplicationBuilder</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span><span class="c">#julia0.7</span>
+<span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NHDaly</span><span class="o">/</span><span class="n">ApplicationBuilderRuntimeUtils</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11981,7 +11937,8 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11992,7 +11949,8 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12001,7 +11959,8 @@ a.anchor-link {
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12012,7 +11971,8 @@ a.anchor-link {
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12023,7 +11983,8 @@ a.anchor-link {
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12034,7 +11995,8 @@ a.anchor-link {
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12045,7 +12007,8 @@ a.anchor-link {
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12057,7 +12020,8 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12068,7 +12032,8 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12078,7 +12043,8 @@ a.anchor-link {
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12087,7 +12053,8 @@ a.anchor-link {
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12097,7 +12064,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">mkpath</span><span class="p">(</span><span class="s">&quot;OurProject&quot;</span><span class="p">)</span>
@@ -12110,24 +12077,10 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">mkpath</span><span class="p">(</span><span class="s">&quot;OurProject/src&quot;</span><span class="p">)</span>  <span class="c"># For OurProject&#39;s source code</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">PrintFileTree</span>
-<span class="n">printfiletree</span><span class="p">(</span><span class="s">&quot;OurProject&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">mkpath</span><span class="p">(</span><span class="s">&quot;OurProject/src&quot;</span><span class="p">)</span>  <span class="c"># For OurProject&#39;s source code</span>
 </pre></div>
 
 </div>
@@ -12144,11 +12097,11 @@ a.anchor-link {
  <span class="s">&quot;&quot;&quot;</span>
 <span class="s">    using UnicodePlots</span>
 
-<span class="s">    println(&quot;**** Hello From Julia! ****&quot;)</span>
+<span class="s">    println(&quot;</span><span class="o">****</span> <span class="n">Hello</span> <span class="n">From</span> <span class="n">Julia!</span> <span class="o">****</span><span class="s">&quot;)</span>
 <span class="s">    r = rand(0:2π)</span>
 <span class="s">    println(lineplot(1:100, sin.(linspace(r, r+2π, 100))))</span>
 <span class="s">    </span>
-<span class="s">    println(&quot;Current working directory:&quot;, pwd())</span>
+<span class="s">    println(&quot;</span><span class="n">Current</span> <span class="n">working</span> <span class="n">directory</span><span class="p">:</span><span class="s">&quot;, pwd())</span>
 <span class="s"> &quot;&quot;&quot;</span>
 <span class="p">)</span>
 </pre></div>
@@ -12162,9 +12115,7 @@ a.anchor-link {
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[4]:</div>
-
 
 
 
@@ -12174,10 +12125,29 @@ a.anchor-link {
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">PrintFileTree</span>
+<span class="n">printfiletree</span><span class="p">(</span><span class="s">&quot;OurProject&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>OurProject
@@ -12193,7 +12163,7 @@ a.anchor-link {
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="s">&quot;OurProject/src/project.jl&quot;</span><span class="p">)</span>
@@ -12208,32 +12178,30 @@ a.anchor-link {
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>**** Hello From Julia! ****
 <span class="ansi-white-fg">      ┌────────────────────────────────────────┐</span> 
-    <span class="ansi-white-fg">1</span><span class="ansi-white-fg"> │</span><span class="ansi-blue-fg">⢄</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡠</span><span class="ansi-blue-fg">⠒</span><span class="ansi-blue-fg">⠉</span><span class="ansi-blue-fg">⠉</span><span class="ansi-blue-fg">⠉</span><span class="ansi-blue-fg">⠒</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠱</span><span class="ansi-blue-fg">⡄</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⠜</span><span class="ansi-blue-fg">⠁</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠘</span><span class="ansi-blue-fg">⡄</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⣠</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠘</span><span class="ansi-blue-fg">⡆</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢠</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠘</span><span class="ansi-blue-fg">⡄</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢠</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠘</span><span class="ansi-blue-fg">⡄</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⠇</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠱</span><span class="ansi-blue-fg">⡀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡎</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-blue-fg">⢧</span><span class="ansi-blue-fg">⡤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-blue-fg">⡾</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠄</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢣</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡜</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢇</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡰</span><span class="ansi-blue-fg">⠁</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⢆</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡠</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⣆</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡰</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⢆</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡰</span><span class="ansi-blue-fg">⠁</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⢢</span><span class="ansi-blue-fg">⡀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⠜</span><span class="ansi-blue-fg">⠁</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
-   <span class="ansi-white-fg">-1</span><span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠑</span><span class="ansi-blue-fg">⠤</span><span class="ansi-blue-fg">⣀</span><span class="ansi-blue-fg">⣀</span><span class="ansi-blue-fg">⣀</span><span class="ansi-blue-fg">⠤</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+    <span class="ansi-white-fg">1</span><span class="ansi-white-fg"> │</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⠤</span><span class="ansi-blue-fg">⠋</span><span class="ansi-blue-fg">⠉</span><span class="ansi-blue-fg">⠉</span><span class="ansi-blue-fg">⠉</span><span class="ansi-blue-fg">⠦</span><span class="ansi-blue-fg">⡀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-blue-fg">⠁</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠘</span><span class="ansi-blue-fg">⡆</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡸</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⢆</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⡎</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⢇</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⠎</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢇</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡎</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⢆</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡞</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⡆</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡜</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-blue-fg">⠼</span><span class="ansi-blue-fg">⡤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-blue-fg">⡴</span><span class="ansi-blue-fg">⠥</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠤</span><span class="ansi-white-fg">⠄</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠱</span><span class="ansi-blue-fg">⡀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢠</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢣</span><span class="ansi-blue-fg">⡀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢠</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢣</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⠇</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢧</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⠇</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢣</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⢀</span><span class="ansi-blue-fg">⠏</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+     <span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠱</span><span class="ansi-blue-fg">⡄</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⡰</span><span class="ansi-blue-fg">⠃</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
+   <span class="ansi-white-fg">-1</span><span class="ansi-white-fg"> │</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-blue-fg">⠈</span><span class="ansi-blue-fg">⠢</span><span class="ansi-blue-fg">⣄</span><span class="ansi-blue-fg">⣀</span><span class="ansi-blue-fg">⣀</span><span class="ansi-blue-fg">⡠</span><span class="ansi-blue-fg">⠎</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">⠀</span><span class="ansi-white-fg">│</span> 
 <span class="ansi-white-fg">      └────────────────────────────────────────┘</span> 
 <span class="ansi-white-fg">      0</span><span class="ansi-white-fg">                   </span><span class="ansi-white-fg">                   100
 </span>
-Current working directory:/Users/daly/Documents/developer/talks/jupyter
+Current working directory:/Users/daly/Documents/developer/talks/juliaCon2018/notebook
 </pre>
 </div>
 </div>
@@ -12242,7 +12210,8 @@ Current working directory:/Users/daly/Documents/developer/talks/jupyter
 </div>
 
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12252,10 +12221,10 @@ Current working directory:/Users/daly/Documents/developer/talks/jupyter
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">ApplicationBuilder</span><span class="p">;</span> <span class="k">using</span> <span class="n">BuildApp</span>  <span class="c"># BuildApp was installed automatically, &quot;next to&quot; ApplicationBuilder.</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">ApplicationBuilder</span>
 </pre></div>
 
 </div>
@@ -12267,12 +12236,18 @@ Current working directory:/Users/daly/Documents/developer/talks/jupyter
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
 
-
 <div class="output_subarea output_stream output_stderr output_text">
-<pre><span class="ansi-yellow-intense-fg ansi-bold">WARNING: </span><span class="ansi-yellow-fg">Your Julia system image is not compiled natively for this CPU architecture.
+<pre><span class="ansi-yellow-intense-fg ansi-bold">Warning: </span><span class="ansi-yellow-fg">ApplicationBuilder has changed since JuliaCon 2018.
+  - `module BuildApp` has been removed. You should remove `using BuildApp`
+      from your build scripts, and just use `using ApplicationBuilder`.
+  - You should also _remove_ `using ApplicationBuilder` from the source-code of
+      programs being built, since the `change_dir_if_bundle` behavior will
+      now come default for all applications. `using ApplicationBuilder` in
+      your program source may cause it to fail to build.
+ This message will be removed in the next version of ApplicationBuilder.</span>
+<span class="ansi-yellow-intense-fg ansi-bold">WARNING: </span><span class="ansi-yellow-fg">Your Julia system image is not compiled natively for this CPU architecture.
         Please run `PackageCompiler.force_native_image!()` for optimal Julia performance</span>
 </pre>
 </div>
@@ -12282,7 +12257,8 @@ Current working directory:/Users/daly/Documents/developer/talks/jupyter
 </div>
 
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12290,7 +12266,8 @@ Current working directory:/Users/daly/Documents/developer/talks/jupyter
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12305,7 +12282,8 @@ Current working directory:/Users/daly/Documents/developer/talks/jupyter
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12330,10 +12308,23 @@ Current working directory:/Users/daly/Documents/developer/talks/jupyter
 
 </div>
 </div>
-</div></div></section><section>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Okay, let's build it!</p>
+<p>We run this command....  but... it fails! Why does it fail? Read on to find out, intrepid user!</p>
+
+</div>
+</div>
+</div>
+</aside></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">build_app_bundle</span><span class="p">(</span><span class="s">&quot;OurProject/src/project.jl&quot;</span><span class="p">)</span>
@@ -12348,20 +12339,18 @@ Current working directory:/Users/daly/Documents/developer/talks/jupyter
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  Using calculated bundle_identifier: &#39;com.daly.project&#39;
-~~~~~~ Creating mac app in &#34;/Users/daly/Documents/developer/talks/jupyter/builddir/project.app&#34; ~~~~~~~
+~~~~~~ Creating mac app in &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/builddir/project.app&#34; ~~~~~~~
 ~~~~~~ Compiling a binary from &#39;OurProject/src/project.jl&#39;... ~~~~~~~
 Julia program file:
-  &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/src/project.jl&#34;
+  &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/builddir/project.app/Contents/MacOS/applicationbuilderutils.jl&#34;
 C program file:
   &#34;/Users/daly/.julia/v0.6/ApplicationBuilder/src/program.c&#34;
 Build directory:
-  &#34;/Users/daly/Documents/developer/talks/jupyter/builddir/project.app/Contents/MacOS&#34;
+  &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/builddir/project.app/Contents/MacOS&#34;
 **** Hello From Julia! ****
       ┌────────────────────────────────────────┐ 
     1 │⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠊⠉⠉⠉⠦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│ 
@@ -12382,15 +12371,13 @@ Build directory:
       └────────────────────────────────────────┘ 
       0                                      100
 
-Current working directory:/Users/daly/Documents/developer/talks/jupyter/builddir/project.app/Contents/MacOS
+Current working directory:/Users/daly/Documents/developer/talks/juliaCon2018/notebook/builddir/project.app/Contents/MacOS
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_text output_error">
 <pre>
@@ -12405,22 +12392,20 @@ Stacktrace:
  [6] <span class="ansi-bold">(::PackageCompiler.#kw##static_julia)</span><span class="ansi-bold">(</span>::Array{Any,1}, ::PackageCompiler.#static_julia, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./&lt;missing&gt;:0</span>
  [7] <span class="ansi-bold">#build_executable#22</span><span class="ansi-bold">(</span>::Void, ::String, ::Bool, ::Bool, ::Bool, ::Void, ::Bool, ::Bool, ::Void, ::Void, ::Void, ::Void, ::Void, ::Void, ::Void, ::String, ::String, ::String, ::Void, ::Void, ::Void, ::Void, ::Void, ::Cmd, ::PackageCompiler.#build_executable, ::String, ::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/daly/.julia/v0.6/PackageCompiler/src/api.jl:98</span>
  [8] <span class="ansi-bold">(::PackageCompiler.#kw##build_executable)</span><span class="ansi-bold">(</span>::Array{Any,1}, ::PackageCompiler.#build_executable, ::String, ::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./&lt;missing&gt;:0</span>
- [9] <span class="ansi-bold">(::BuildApp.##2#7{Bool,String})</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/daly/.julia/v0.6/ApplicationBuilder/src/BuildApp.jl:136</span>
- [10] <span class="ansi-bold">withenv</span><span class="ansi-bold">(</span>::BuildApp.##2#7{Bool,String}, ::Pair{String,String}, ::Vararg{Pair{String,String},N} where N<span class="ansi-bold">)</span> at <span class="ansi-bold">./env.jl:157</span>
- [11] <span class="ansi-bold">#build_app_bundle#1</span><span class="ansi-bold">(</span>::String, ::String, ::Array{String,1}, ::Array{String,1}, ::Bool, ::Void, ::String, ::Void, ::Void, ::Void, ::Bool, ::BuildApp.#build_app_bundle, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/daly/.julia/v0.6/ApplicationBuilder/src/BuildApp.jl:132</span>
- [12] <span class="ansi-bold">build_app_bundle</span><span class="ansi-bold">(</span>::String<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/daly/.julia/v0.6/ApplicationBuilder/src/BuildApp.jl:37</span></pre>
+ [9] <span class="ansi-bold">(::ApplicationBuilder.##2#7{Bool})</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/daly/.julia/v0.6/ApplicationBuilder/src/ApplicationBuilder.jl:177</span>
+ [10] <span class="ansi-bold">withenv</span><span class="ansi-bold">(</span>::ApplicationBuilder.##2#7{Bool}, ::Pair{String,String}, ::Vararg{Pair{String,String},N} where N<span class="ansi-bold">)</span> at <span class="ansi-bold">./env.jl:157</span>
+ [11] <span class="ansi-bold">#build_app_bundle#1</span><span class="ansi-bold">(</span>::String, ::String, ::Array{String,1}, ::Array{String,1}, ::Bool, ::Void, ::String, ::Void, ::Void, ::Void, ::Void, ::Bool, ::Bool, ::ApplicationBuilder.#build_app_bundle, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/daly/.julia/v0.6/ApplicationBuilder/src/ApplicationBuilder.jl:173</span>
+ [12] <span class="ansi-bold">build_app_bundle</span><span class="ansi-bold">(</span>::String<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/daly/.julia/v0.6/ApplicationBuilder/src/ApplicationBuilder.jl:47</span></pre>
 </div>
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>Undefined symbols for architecture x86_64:
   &#34;_julia_main&#34;, referenced from:
-      _main in program-9f8865.o
+      _main in program-940d26.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </pre>
@@ -12432,7 +12417,8 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12450,7 +12436,8 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12459,7 +12446,8 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12476,7 +12464,8 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12491,7 +12480,8 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12511,14 +12501,14 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
  <span class="s">&quot;&quot;&quot;</span>
 <span class="s">    using UnicodePlots</span>
 <span class="s">    </span>
-<span class="s">    println(&quot;**** Hello from the outside! ****&quot;)</span>
+<span class="s">    println(&quot;</span><span class="o">****</span> <span class="n">Hello</span> <span class="n">from</span> <span class="n">the</span> <span class="n">outside!</span> <span class="o">****</span><span class="s">&quot;)</span>
 <span class="s">    </span>
 <span class="s">    Base.@ccallable function julia_main(ARGS::Vector{String})::Cint</span>
-<span class="s">        println(&quot;**** Hello From Julia! ****&quot;)</span>
+<span class="s">        println(&quot;</span><span class="o">****</span> <span class="n">Hello</span> <span class="n">From</span> <span class="n">Julia!</span> <span class="o">****</span><span class="s">&quot;)</span>
 <span class="s">        r = rand(0:2π)</span>
 <span class="s">        println(lineplot(1:100, sin.(linspace(r, r+2π, 100))))</span>
 <span class="s">    </span>
-<span class="s">        println(&quot;Current working directory:&quot;, pwd())</span>
+<span class="s">        println(&quot;</span><span class="n">Current</span> <span class="n">working</span> <span class="n">directory</span><span class="p">:</span><span class="s">&quot;, pwd())</span>
 
 <span class="s">        return 0</span>
 <span class="s">    end</span>
@@ -12535,9 +12525,7 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[9]:</div>
-
 
 
 
@@ -12559,7 +12547,7 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 <div class=" highlight hl-julia"><pre><span></span><span class="n">build_app_bundle</span><span class="p">(</span><span class="s">&quot;OurProject/src/project.jl&quot;</span><span class="p">,</span>
                  <span class="n">appname</span><span class="o">=</span><span class="s">&quot;HelloWorld&quot;</span><span class="p">,</span>
                  <span class="n">builddir</span><span class="o">=</span><span class="s">&quot;OurProject/builds&quot;</span><span class="p">,</span>
-                 <span class="n">commandline_app</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+                 <span class="n">commandline_app</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12571,33 +12559,27 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  Using calculated bundle_identifier: &#39;com.daly.helloworld&#39;
-~~~~~~ Creating mac app in &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/HelloWorld.app&#34; ~~~~~~~
+~~~~~~ Creating mac app in &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/HelloWorld.app&#34; ~~~~~~~
 ~~~~~~ Creating commandline-app wrapper applet. ~~~~~~~
 ~~~~~~ Compiling a binary from &#39;OurProject/src/project.jl&#39;... ~~~~~~~
 Julia program file:
-  &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/src/project.jl&#34;
+  &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/HelloWorld.app/Contents/MacOS/applicationbuilderutils.jl&#34;
 C program file:
   &#34;/Users/daly/.julia/v0.6/ApplicationBuilder/src/program.c&#34;
 Build directory:
-  &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/HelloWorld.app/Contents/MacOS&#34;
+  &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/HelloWorld.app/Contents/MacOS&#34;
 **** Hello from the outside! ****
 All done
-~~~~~~ Generating &#39;Info.plist&#39; for &#39;com.daly.helloworld&#39;... ~~~~~~~
-~~~~~~ Cleaning up temporary files... ~~~~~~~
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[10]:</div>
-
 
 
 
@@ -12608,12 +12590,12 @@ All done
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
 
-
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>~~~~~~ Done building &#39;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/HelloWorld.app&#39;! ~~~~~~~
+<pre>~~~~~~ Generating &#39;Info.plist&#39; for &#39;com.daly.helloworld&#39;... ~~~~~~~
+~~~~~~ Cleaning up temporary files... ~~~~~~~
+~~~~~~ Done building &#39;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/HelloWorld.app&#39;! ~~~~~~~
 </pre>
 </div>
 </div>
@@ -12622,13 +12604,14 @@ All done
 </div>
 
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Explanation of <code>julia_main</code>'s (ugly) function declaration:</p>
-<div class="highlight"><pre><span></span><span class="n">Base</span><span class="o">.</span><span class="nd">@ccallable</span>
-<span class="k">function</span> <span class="n">julia_main</span><span class="p">(</span><span class="nb">ARGS</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})</span><span class="o">::</span><span class="kt">Cint</span>
+<div class="highlight"><pre><span></span><span class="n">Base</span><span class="o">.</span><span class="p">@</span><span class="n">ccallable</span>
+<span class="k">function</span><span class="nf"> julia_main</span><span class="p">(</span><span class="n">ARGS</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">})::</span><span class="n">Cint</span>
 </pre></div>
 <ul>
 <li><code>Base.@ccallable</code> allows the function to be called by the <em>driver</em> executable.</li>
@@ -12638,7 +12621,8 @@ All done
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12660,7 +12644,8 @@ All done
 </div>
 
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12668,16 +12653,19 @@ All done
 <p>In order to see a <em>speed up</em> from compiling, you have to <em>fully compile</em> your code to native instructions, not just lower it to an AST. <code>snoop</code> == tell julia what to compile.</p>
 <div class="highlight"><pre><span></span><span class="n">build_app_bundle</span><span class="p">(</span>
     <span class="s">&quot;OurProject/src/project.jl&quot;</span><span class="p">,</span>
-    <span class="n">autosnoop</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span>  <span class="c"># &lt;----- Added this yesterday...</span>
+    <span class="n">autosnoop</span><span class="o">=</span><span class="n">true</span><span class="p">,</span>  <span class="c"># &lt;----- Added this yesterday...</span>
   <span class="c"># or:</span>
     <span class="n">snoopfile</span><span class="o">=</span><span class="s">&quot;project_snoopfile.jl&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
+<p><strong>NOTE</strong>: This is still very much in-flux. For more details on this rapidly developing situation, please see this GitHub Issue:
+<a href="https://github.com/NHDaly/ApplicationBuilder.jl/issues/24">https://github.com/NHDaly/ApplicationBuilder.jl/issues/24</a></p>
 
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12686,7 +12674,8 @@ All done
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12695,7 +12684,8 @@ All done
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12703,7 +12693,8 @@ All done
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12748,9 +12739,7 @@ All done
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 <div class="output_html rendered_html output_subarea ">
@@ -12773,9 +12762,7 @@ All done
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 <div class="output_html rendered_html output_subarea ">
@@ -12785,9 +12772,7 @@ All done
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 <div class="output_html rendered_html output_subarea ">
@@ -12797,9 +12782,7 @@ All done
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 <div class="output_html rendered_html output_subarea ">
@@ -12812,9 +12795,7 @@ All done
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Loading HttpServer methods...
@@ -12832,17 +12813,17 @@ All done
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">body!</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">    &lt;input id=&quot;mySlider&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;</span>
+<span class="s">    &lt;input id=&quot;</span><span class="n">mySlider</span><span class="s">&quot; type=&quot;</span><span class="n">range</span><span class="s">&quot; min=&quot;</span><span class="mi">1</span><span class="s">&quot; max=&quot;</span><span class="mi">100</span><span class="s">&quot; value=&quot;</span><span class="mi">50</span><span class="s">&quot;&gt;</span>
 <span class="s">    &lt;script&gt; </span>
-<span class="s">        var mySlider = document.getElementById(&quot;mySlider&quot;)</span>
+<span class="s">        var mySlider = document.getElementById(&quot;</span><span class="n">mySlider</span><span class="s">&quot;)</span>
 <span class="s">    &lt;/script&gt;</span>
 <span class="s">&quot;&quot;&quot;</span><span class="p">);</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">tools</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
 
-<span class="n">Blink</span><span class="o">.</span><span class="nd">@js_</span> <span class="n">win</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;HELLO!&quot;</span><span class="p">)</span>
-<span class="n">Blink</span><span class="o">.</span><span class="nd">@js_</span> <span class="n">win</span> <span class="n">mySlider</span><span class="o">.</span><span class="n">oninput</span> <span class="o">=</span> 
-    <span class="p">(</span><span class="nb">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">Blink</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s">&quot;sliderChange&quot;</span><span class="p">,</span> <span class="n">mySlider</span><span class="o">.</span><span class="n">value</span><span class="p">);</span>
-            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;sent msg to julia!&quot;</span><span class="p">);</span> <span class="nb">e</span><span class="o">.</span><span class="n">returnValue</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+<span class="n">Blink</span><span class="o">.</span><span class="p">@</span><span class="n">js_</span> <span class="n">win</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;HELLO!&quot;</span><span class="p">)</span>
+<span class="n">Blink</span><span class="o">.</span><span class="p">@</span><span class="n">js_</span> <span class="n">win</span> <span class="n">mySlider</span><span class="o">.</span><span class="n">oninput</span> <span class="o">=</span> 
+    <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">Blink</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s">&quot;sliderChange&quot;</span><span class="p">,</span> <span class="n">mySlider</span><span class="o">.</span><span class="n">value</span><span class="p">);</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;sent msg to julia!&quot;</span><span class="p">);</span> <span class="n">e</span><span class="o">.</span><span class="n">returnValue</span><span class="o">=</span><span class="n">false</span><span class="p">)</span>
 <span class="n">Blink</span><span class="o">.</span><span class="n">handlers</span><span class="p">(</span><span class="n">win</span><span class="p">)[</span><span class="s">&quot;sliderChange&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;msg from js: </span><span class="si">$val</span><span class="s">&quot;</span><span class="p">))</span>
 </pre></div>
 
@@ -12855,73 +12836,14 @@ All done
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[13]:</div>
 
 
 
-
 <div class="output_text output_subarea output_execute_result">
-<pre>(::#5) (generic function with 1 method)</pre>
+<pre>(::#3) (generic function with 1 method)</pre>
 </div>
 
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>msg from js: 41
-msg from js: 42
-msg from js: 51
-msg from js: 60
-msg from js: 67
-msg from js: 73
-msg from js: 74
-msg from js: 21
-msg from js: 69
-msg from js: 49
-msg from js: 48
-msg from js: 47
-msg from js: 44
-msg from js: 36
-msg from js: 34
-msg from js: 32
-msg from js: 34
-msg from js: 41
-msg from js: 51
-msg from js: 58
-msg from js: 66
-msg from js: 70
-msg from js: 72
-msg from js: 65
-msg from js: 48
-msg from js: 34
-msg from js: 23
-msg from js: 15
-msg from js: 13
-msg from js: 15
-msg from js: 31
-msg from js: 47
-msg from js: 58
-msg from js: 70
-msg from js: 75
-msg from js: 78
-msg from js: 77
-msg from js: 75
-msg from js: 73
-msg from js: 68
-msg from js: 65
-msg from js: 61
-msg from js: 62
-msg from js: 64
-msg from js: 68
-msg from js: 75
-msg from js: 100
-</pre>
-</div>
 </div>
 
 </div>
@@ -12946,9 +12868,17 @@ msg from js: 100
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Recompiling stale cache file /Users/daly/.julia/lib/v0.6/Colors.ji for module Colors.
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Recompiling stale cache file /Users/daly/.julia/lib/v0.6/Plots.ji for module Plots.
+</span></pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
 
 
 <div class="output_html rendered_html output_subarea ">
@@ -12972,9 +12902,7 @@ msg from js: 100
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[14]:</div>
-
 
 
 
@@ -12990,11 +12918,11 @@ msg from js: 100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.1</span><span class="o">:</span><span class="mi">2</span><span class="nb">π</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="mi">2</span><span class="nb">π</span><span class="o">/</span><span class="mi">100</span><span class="o">:</span><span class="n">r</span><span class="o">+</span><span class="mi">2</span><span class="nb">π</span><span class="p">,</span> <span class="n">sin</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">2</span><span class="n">π</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">:</span><span class="mi">2</span><span class="n">π</span><span class="o">/</span><span class="mi">100</span><span class="p">:</span><span class="n">r</span><span class="o">+</span><span class="mi">2</span><span class="n">π</span><span class="p">,</span> <span class="n">sin</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13006,16 +12934,14 @@ msg from js: 100
 
 
 <div class="output_area">
-
-<div class="prompt output_prompt">Out[15]:</div>
-
+<div class="prompt output_prompt">Out[18]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<script src="file:///Users/daly/.julia/v0.6/Plots/src/backends/../../deps/plotly-latest.min.js"></script>    <div id="f486236c-4fa7-4037-8117-e83da12dadb3" style="width:600px;height:400px;"></div>
+<script src="file:///Users/daly/.julia/v0.6/Plots/src/backends/../../deps/plotly-latest.min.js"></script>    <div id="9612f57e-fed4-4442-abcd-d62fc4f13597" style="width:600px;height:400px;"></div>
     <script>
-    PLOT = document.getElementById('f486236c-4fa7-4037-8117-e83da12dadb3');
-    Plotly.plot(PLOT, [{"xaxis":"x1","colorbar":{"title":""},"yaxis":"y1","text":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"x":[4.2,4.262831853071796,4.325663706143592,4.388495559215388,4.451327412287184,4.5141592653589795,4.576991118430775,4.639822971502571,4.702654824574367,4.765486677646163,4.828318530717959,4.891150383789754,4.953982236861551,5.016814089933346,5.079645943005143,5.142477796076938,5.2053096491487345,5.26814150222053,5.3309733552923255,5.393805208364122,5.456637061435917,5.519468914507714,5.582300767579509,5.645132620651305,5.707964473723101,5.770796326794897,5.833628179866693,5.896460032938489,5.959291886010284,6.0221237390820805,6.084955592153876,6.147787445225672,6.210619298297468,6.2734511513692635,6.33628300444106,6.399114857512855,6.461946710584652,6.524778563656447,6.587610416728243,6.650442269800039,6.713274122871835,6.776105975943631,6.838937829015427,6.901769682087222,6.9646015351590185,7.027433388230814,7.09026524130261,7.153097094374406,7.215928947446201,7.278760800517998,7.341592653589793,7.40442450666159,7.467256359733385,7.530088212805182,7.592920065876977,7.655751918948773,7.718583772020569,7.7814156250923645,7.844247478164161,7.907079331235956,7.969911184307752,8.032743037379548,8.095574890451344,8.15840674352314,8.221238596594937,8.284070449666732,8.346902302738528,8.409734155810323,8.472566008882119,8.535397861953916,8.598229715025711,8.661061568097507,8.723893421169302,8.786725274241098,8.849557127312895,8.91238898038469,8.975220833456486,9.038052686528282,9.100884539600077,9.163716392671875,9.22654824574367,9.289380098815466,9.352211951887261,9.415043804959057,9.477875658030854,9.54070751110265,9.603539364174445,9.66637121724624,9.729203070318036,9.792034923389833,9.854866776461629,9.917698629533424,9.98053048260522,10.043362335677015,10.106194188748812,10.169026041820608,10.231857894892403,10.294689747964199,10.357521601035995,10.420353454107792],"showlegend":true,"mode":"lines","name":"y1","legendgroup":"y1","line":{"color":"rgba(0, 154, 250, 1.000)","shape":"linear","dash":"solid","width":1},"y":[-0.8715757724135882,-0.9006396483961274,-0.9261491111495639,-0.948003486478574,-0.9661165251480492,-0.9804167432694207,-0.9908477044149121,-0.9973682423463349,-0.999952623479424,-0.9985906484425388,-0.9932876923289224,-0.9840646834836653,-0.9709580209090876,-0.9540194306145068,-0.9333157614773094,-0.9089287214209738,-0.8809545549512229,-0.8495036633229325,-0.8147001688368135,-0.7766814249853979,-0.7355974743815565,-0.6916104566088498,-0.6448939683306708,-0.5956323781835199,-0.5440200991582271,-0.4902608213406995,-0.43456670804020336,-0.37715755847771737,-0.3182599403388182,-0.258106295614537,-0.19693402325901613,-0.13498454228428808,-0.07250233898973621,-0.00973400208635981,0.053072750476209796,0.11567004913928224,0.1778108509630216,0.23924991459205974,0.29974476811109196,0.35905666597074914,0.4169515312072061,0.47320087923702425,0.5275827195814109,0.5798824319612274,0.6298936133051768,0.6774188923284287,0.7222707084669143,0.7642720520931795,0.8032571630925206,0.8390721850424269,0.8715757724135881,0.9006396483961278,0.9261491111495639,0.9480034864785742,0.9661165251480492,0.9804167432694207,0.9908477044149122,0.9973682423463349,0.999952623479424,0.9985906484425388,0.9932876923289224,0.9840646834836652,0.9709580209090876,0.9540194306145068,0.9333157614773091,0.9089287214209735,0.8809545549512229,0.8495036633229326,0.8147001688368136,0.7766814249853975,0.735597474381556,0.6916104566088498,0.6448939683306709,0.59563237818352,0.5440200991582265,0.4902608213406988,0.4345667080402035,0.3771575584777175,0.3182599403388183,0.2581062956145363,0.19693402325901538,0.13498454228428822,0.07250233898973633,0.009734002086359933,-0.053072750476210566,-0.115670049139283,-0.1778108509630215,-0.23924991459205963,-0.29974476811109185,-0.3590566659707498,-0.4169515312072068,-0.47320087923702414,-0.5275827195814109,-0.5798824319612272,-0.6298936133051773,-0.6774188923284292,-0.7222707084669142,-0.7642720520931794,-0.8032571630925206,-0.8390721850424273],"type":"scatter","hoverinfo":"text"}], {"showlegend":true,"xaxis":{"showticklabels":true,"gridwidth":0.5,"tickvals":[5.0,6.0,7.0,8.0,9.0,10.0],"visible":true,"ticks":"inside","range":[4.013389396376766,10.606964057731025],"domain":[0.0658209390492855,0.9934383202099738],"tickmode":"array","linecolor":"rgba(0, 0, 0, 1.000)","showgrid":true,"title":"","mirror":false,"tickangle":0,"showline":true,"gridcolor":"rgba(0, 0, 0, 0.100)","titlefont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":15},"tickcolor":"rgb(0, 0, 0)","ticktext":["5","6","7","8","9","10"],"zeroline":false,"type":"-","tickfont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"zerolinecolor":"rgba(0, 0, 0, 1.000)","anchor":"y1"},"paper_bgcolor":"rgba(255, 255, 255, 1.000)","annotations":[],"height":400,"margin":{"l":0,"b":20,"r":0,"t":20},"plot_bgcolor":"rgba(255, 255, 255, 1.000)","yaxis":{"showticklabels":true,"gridwidth":0.5,"tickvals":[-1.0,-0.5,0.0,0.5,1.0],"visible":true,"ticks":"inside","range":[-1.0599497808881895,1.0599497808881895],"domain":[0.03762029746281716,0.9901574803149606],"tickmode":"array","linecolor":"rgba(0, 0, 0, 1.000)","showgrid":true,"title":"","mirror":false,"tickangle":0,"showline":true,"gridcolor":"rgba(0, 0, 0, 0.100)","titlefont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":15},"tickcolor":"rgb(0, 0, 0)","ticktext":["-1.0","-0.5","0.0","0.5","1.0"],"zeroline":false,"type":"-","tickfont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"zerolinecolor":"rgba(0, 0, 0, 1.000)","anchor":"x1"},"legend":{"tracegroupgap":0,"bordercolor":"rgba(0, 0, 0, 1.000)","bgcolor":"rgba(255, 255, 255, 1.000)","font":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"y":1.0,"x":1.0},"width":600});
+    PLOT = document.getElementById('9612f57e-fed4-4442-abcd-d62fc4f13597');
+    Plotly.plot(PLOT, [{"xaxis":"x1","colorbar":{"title":""},"yaxis":"y1","text":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"x":[1.1,1.162831853071796,1.2256637061435918,1.2884955592153877,1.3513274122871834,1.4141592653589794,1.4769911184307754,1.539822971502571,1.602654824574367,1.665486677646163,1.7283185307179587,1.7911503837897547,1.8539822368615506,1.9168140899333463,1.9796459430051423,2.042477796076938,2.105309649148734,2.16814150222053,2.230973355292326,2.2938052083641214,2.3566370614359173,2.4194689145077133,2.4823007675795092,2.545132620651305,2.6079644737231007,2.6707963267948966,2.7336281798666926,2.7964600329384885,2.8592918860102845,2.9221237390820805,2.984955592153876,3.047787445225672,3.110619298297468,3.173451151369264,3.2362830044410598,3.2991148575128553,3.361946710584651,3.424778563656447,3.487610416728243,3.550442269800039,3.613274122871835,3.6761059759436305,3.7389378290154265,3.8017696820872224,3.8646015351590184,3.9274333882308143,3.99026524130261,4.053097094374406,4.115928947446202,4.178760800517997,4.241592653589794,4.304424506661589,4.3672563597333856,4.430088212805181,4.492920065876977,4.555751918948773,4.6185837720205685,4.681415625092365,4.74424747816416,4.807079331235956,4.869911184307752,4.932743037379548,4.995574890451344,5.05840674352314,5.121238596594935,5.184070449666732,5.246902302738527,5.3097341558103235,5.372566008882119,5.435397861953915,5.498229715025711,5.561061568097506,5.623893421169303,5.686725274241098,5.749557127312895,5.81238898038469,5.875220833456486,5.938052686528282,6.000884539600078,6.063716392671874,6.1265482457436695,6.189380098815465,6.252211951887261,6.315043804959057,6.377875658030853,6.440707511102649,6.503539364174444,6.566371217246241,6.629203070318036,6.692034923389833,6.754866776461628,6.817698629533424,6.88053048260522,6.9433623356770156,7.006194188748812,7.0690260418206075,7.131857894892404,7.194689747964199,7.257521601035995,7.320353454107791],"showlegend":true,"mode":"lines","name":"y1","legendgroup":"y1","line":{"color":"rgba(0, 154, 250, 1.000)","shape":"linear","dash":"solid","width":1},"y":[0.8912073600614354,0.9179303020341045,0.9410305924671096,0.9604170650676306,0.9760132102851498,0.9877574772596949,0.9956035167349625,0.9995203639776581,0.9994925609811522,0.99552021747117,0.9876190104727542,0.9758201224402095,0.9601701181942012,0.9407307611516814,0.9175787695738994,0.890805513794474,0.8605166556224294,0.8268317313433076,0.7898836799640603,0.7498183185635225,0.7067937668190194,0.6609798229802385,0.6125572937531116,0.5617172807383489,0.5086604262407275,0.45359612142557737,0.3967416799475165,0.3383214803127353,0.2785660803595416,0.2177113073519053,0.15599732727698679,0.0936676970197052,0.03096840315498713,-0.03185310884886607,-0.094548911184394,-0.1568715721627654,-0.21857513271361498,-0.2794160770731235,-0.3391542938294874,-0.3975540235329646,-0.45438478913071406,-0.5094223055544282,-0.562449364871033,-0.6132566935031643,-0.6616437781363717,-0.7074196570535639,-0.7504036737736647,-0.7904261900202095,-0.827329255206121,-0.8609672297925174,-0.8912073600614355,-0.9179303020341045,-0.9410305924671098,-0.9604170650676306,-0.9760132102851498,-0.987757477259695,-0.9956035167349625,-0.9995203639776581,-0.9994925609811522,-0.99552021747117,-0.9876190104727542,-0.9758201224402095,-0.9601701181942011,-0.9407307611516814,-0.9175787695738995,-0.8908055137944738,-0.8605166556224294,-0.8268317313433073,-0.7898836799640603,-0.7498183185635221,-0.7067937668190192,-0.6609798229802386,-0.6125572937531114,-0.561717280738349,-0.5086604262407268,-0.4535961214255771,-0.39674167994751663,-0.33832148031273496,-0.2785660803595417,-0.217711307351905,-0.15599732727698645,-0.09366769701970533,-0.030968403154986807,0.031853108848865955,0.09454891118439432,0.15687157216276573,0.21857513271361487,0.27941607707312377,0.3391542938294873,0.3975540235329649,0.454384789130714,0.5094223055544281,0.5624493648710333,0.6132566935031643,0.6616437781363719,0.7074196570535639,0.7504036737736651,0.7904261900202095,0.8273292552061209,0.8609672297925177],"type":"scatter","hoverinfo":"text"}], {"showlegend":true,"xaxis":{"showticklabels":true,"gridwidth":0.5,"tickvals":[1.0,2.0,3.0,4.0,5.0,6.0,7.0],"visible":true,"ticks":"inside","range":[0.9133893963767663,7.506964057731025],"domain":[0.0658209390492855,0.9934383202099738],"tickmode":"array","linecolor":"rgba(0, 0, 0, 1.000)","showgrid":true,"title":"","mirror":false,"tickangle":0,"showline":true,"gridcolor":"rgba(0, 0, 0, 0.100)","titlefont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":15},"tickcolor":"rgb(0, 0, 0)","ticktext":["1","2","3","4","5","6","7"],"zeroline":false,"type":"-","tickfont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"zerolinecolor":"rgba(0, 0, 0, 1.000)","anchor":"y1"},"paper_bgcolor":"rgba(255, 255, 255, 1.000)","annotations":[],"height":400,"margin":{"l":0,"b":20,"r":0,"t":20},"plot_bgcolor":"rgba(255, 255, 255, 1.000)","yaxis":{"showticklabels":true,"gridwidth":0.5,"tickvals":[-1.0,-0.5,0.0,0.5,1.0],"visible":true,"ticks":"inside","range":[-1.0594915858163176,1.0594915858163176],"domain":[0.03762029746281716,0.9901574803149606],"tickmode":"array","linecolor":"rgba(0, 0, 0, 1.000)","showgrid":true,"title":"","mirror":false,"tickangle":0,"showline":true,"gridcolor":"rgba(0, 0, 0, 0.100)","titlefont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":15},"tickcolor":"rgb(0, 0, 0)","ticktext":["-1.0","-0.5","0.0","0.5","1.0"],"zeroline":false,"type":"-","tickfont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"zerolinecolor":"rgba(0, 0, 0, 1.000)","anchor":"x1"},"legend":{"tracegroupgap":0,"bordercolor":"rgba(0, 0, 0, 1.000)","bgcolor":"rgba(255, 255, 255, 1.000)","font":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"y":1.0,"x":1.0},"width":600});
     </script>
 
 </div>
@@ -13028,16 +12954,16 @@ msg from js: 100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Let&#39;s draw that plot as an SVG and show it in our html window!</span>
-<span class="n">buf</span> <span class="o">=</span> <span class="kt">IOBuffer</span><span class="p">()</span>
-<span class="n">show</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="kt">MIME</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">buf</span> <span class="o">=</span> <span class="n">IOBuffer</span><span class="p">()</span>
+<span class="n">show</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">MIME</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
 <span class="n">plothtml</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">take!</span><span class="p">(</span><span class="n">buf</span><span class="p">))</span>
 
-<span class="n">body!</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s">&quot;&quot;&quot;&lt;script&gt;var Plotly = require(&#39;</span><span class="si">$</span><span class="p">(</span><span class="n">Plots</span><span class="o">.</span><span class="n">_plotly_js_path</span><span class="p">)</span><span class="s">&#39;);&lt;/script&gt;</span>
-<span class="s">              &lt;div id=&quot;plotHolder&quot;&gt;&lt;/div&gt;&quot;&quot;&quot;</span><span class="p">);</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">body!</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s">&quot;&quot;&quot;&lt;script&gt;var Plotly = require(&#39;</span><span class="si">$(Plots._plotly_js_path)</span><span class="s">&#39;);&lt;/script&gt;</span>
+<span class="s">              &lt;div id=&quot;</span><span class="n">plotHolder</span><span class="s">&quot;&gt;&lt;/div&gt;&quot;&quot;&quot;</span><span class="p">);</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">content!</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s">&quot;#plotHolder&quot;</span><span class="p">,</span> <span class="n">plothtml</span><span class="p">);</span>
 </pre></div>
 
@@ -13046,7 +12972,8 @@ msg from js: 100
 </div>
 
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13056,7 +12983,7 @@ msg from js: 100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Blink</span><span class="p">,</span> <span class="n">Plots</span>
@@ -13064,30 +12991,30 @@ msg from js: 100
 
 <span class="n">win</span> <span class="o">=</span> <span class="n">Window</span><span class="p">();</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">body!</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">    &lt;input id=&quot;mySlider&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;</span>
-<span class="s">    &lt;div id=&quot;plotHolder&quot;&gt;</span>
+<span class="s">    &lt;input id=&quot;</span><span class="n">mySlider</span><span class="s">&quot; type=&quot;</span><span class="n">range</span><span class="s">&quot; min=&quot;</span><span class="mi">1</span><span class="s">&quot; max=&quot;</span><span class="mi">100</span><span class="s">&quot; value=&quot;</span><span class="mi">50</span><span class="s">&quot;&gt;</span>
+<span class="s">    &lt;div id=&quot;</span><span class="n">plotHolder</span><span class="s">&quot;&gt;</span>
 <span class="s">        plot goes here...</span>
 <span class="s">    &lt;/div&gt;</span>
 <span class="s">    &lt;script&gt;</span>
-<span class="s">        mySlider = document.getElementById(&quot;mySlider&quot;)</span>
-<span class="s">        var Plotly = require(&#39;</span><span class="si">$</span><span class="p">(</span><span class="n">Plots</span><span class="o">.</span><span class="n">_plotly_js_path</span><span class="p">)</span><span class="s">&#39;);</span>
+<span class="s">        mySlider = document.getElementById(&quot;</span><span class="n">mySlider</span><span class="s">&quot;)</span>
+<span class="s">        var Plotly = require(&#39;</span><span class="si">$(Plots._plotly_js_path)</span><span class="s">&#39;);</span>
 <span class="s">    &lt;/script&gt;</span>
 <span class="s">&quot;&quot;&quot;</span><span class="p">);</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">tools</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
 
-<span class="n">Blink</span><span class="o">.</span><span class="nd">@js</span> <span class="n">win</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;HELLO!&quot;</span><span class="p">)</span>
-<span class="n">Blink</span><span class="o">.</span><span class="nd">@js</span> <span class="n">win</span> <span class="n">mySlider</span><span class="o">.</span><span class="n">oninput</span> <span class="o">=</span> 
-    <span class="p">(</span><span class="nb">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">Blink</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s">&quot;sliderChange&quot;</span><span class="p">,</span> <span class="n">mySlider</span><span class="o">.</span><span class="n">value</span><span class="p">);</span>
-            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;sent msg to julia!&quot;</span><span class="p">);</span> <span class="nb">e</span><span class="o">.</span><span class="n">returnValue</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+<span class="n">Blink</span><span class="o">.</span><span class="p">@</span><span class="n">js</span> <span class="n">win</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;HELLO!&quot;</span><span class="p">)</span>
+<span class="n">Blink</span><span class="o">.</span><span class="p">@</span><span class="n">js</span> <span class="n">win</span> <span class="n">mySlider</span><span class="o">.</span><span class="n">oninput</span> <span class="o">=</span> 
+    <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">Blink</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s">&quot;sliderChange&quot;</span><span class="p">,</span> <span class="n">mySlider</span><span class="o">.</span><span class="n">value</span><span class="p">);</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;sent msg to julia!&quot;</span><span class="p">);</span> <span class="n">e</span><span class="o">.</span><span class="n">returnValue</span><span class="o">=</span><span class="n">false</span><span class="p">)</span>
 
-<span class="k">function</span> <span class="n">sliderChange</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> sliderChange</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">Plots</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">:</span><span class="mi">2</span><span class="nb">π</span><span class="o">/</span><span class="mi">100</span><span class="o">:</span><span class="n">r</span><span class="o">+</span><span class="mi">2</span><span class="nb">π</span><span class="p">,</span> <span class="n">sin</span><span class="p">)</span>
-    <span class="n">buf</span> <span class="o">=</span> <span class="kt">IOBuffer</span><span class="p">()</span>
-    <span class="n">show</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="kt">MIME</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Plots</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">:</span><span class="mi">2</span><span class="n">π</span><span class="o">/</span><span class="mi">100</span><span class="p">:</span><span class="n">r</span><span class="o">+</span><span class="mi">2</span><span class="n">π</span><span class="p">,</span> <span class="n">sin</span><span class="p">)</span>
+    <span class="n">buf</span> <span class="o">=</span> <span class="n">IOBuffer</span><span class="p">()</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">MIME</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
     <span class="n">plothtml</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">take!</span><span class="p">(</span><span class="n">buf</span><span class="p">))</span>
 
-    <span class="n">content!</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s">&quot;#plotHolder&quot;</span><span class="p">,</span> <span class="n">plothtml</span><span class="p">,</span> <span class="n">fade</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+    <span class="n">content!</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s">&quot;#plotHolder&quot;</span><span class="p">,</span> <span class="n">plothtml</span><span class="p">,</span> <span class="n">fade</span><span class="o">=</span><span class="n">false</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="n">Blink</span><span class="o">.</span><span class="n">handlers</span><span class="p">(</span><span class="n">win</span><span class="p">)[</span><span class="s">&quot;sliderChange&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sliderChange</span>
@@ -13102,9 +13029,7 @@ msg from js: 100
 
 
 <div class="output_area">
-
-<div class="prompt output_prompt">Out[17]:</div>
-
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -13117,20 +13042,9 @@ msg from js: 100
 </div>
 </div>
 
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Note that it still is pretty slow.</p>
-<p>I think this is mainly because we haven't statically-compiled anything (we've only lowered our code) because we're not using any snoop-compiling. However, <code>autosnoop</code> fails for Blink programs right now.</p>
-
-</div>
-</div>
-</div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13140,7 +13054,7 @@ msg from js: 100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">write</span><span class="p">(</span><span class="s">&quot;OurProject/src/project.jl&quot;</span><span class="p">,</span>
@@ -13151,44 +13065,44 @@ msg from js: 100
 <span class="s">    Base.@ccallable function julia_main(ARGS::Vector{String})::Cint</span>
 <span class="s">        win = Blink.Window(); sleep(2)</span>
 <span class="s">        Blink.body!(win, </span><span class="se">\&quot;\&quot;\&quot;</span><span class="s"></span>
-<span class="s">            &lt;input id=&quot;mySlider&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;</span>
-<span class="s">            &lt;div id=&quot;plotHolder&quot;&gt;</span>
+<span class="s">            &lt;input id=&quot;</span><span class="n">mySlider</span><span class="s">&quot; type=&quot;</span><span class="n">range</span><span class="s">&quot; min=&quot;</span><span class="mi">1</span><span class="s">&quot; max=&quot;</span><span class="mi">100</span><span class="s">&quot; value=&quot;</span><span class="mi">50</span><span class="s">&quot;&gt;</span>
+<span class="s">            &lt;div id=&quot;</span><span class="n">plotHolder</span><span class="s">&quot;&gt;</span>
 <span class="s">                plot goes here...</span>
 <span class="s">            &lt;/div&gt;</span>
 <span class="s">            &lt;script&gt;</span>
-<span class="s">                mySlider = document.getElementById(&quot;mySlider&quot;)</span>
-<span class="s">                var Plotly = require(&#39;</span><span class="si">$</span><span class="p">(</span><span class="n">Plots</span><span class="o">.</span><span class="n">_plotly_js_path</span><span class="p">)</span><span class="s">&#39;);</span>
+<span class="s">                mySlider = document.getElementById(&quot;</span><span class="n">mySlider</span><span class="s">&quot;)</span>
+<span class="s">                var Plotly = require(&#39;</span><span class="si">$(Plots._plotly_js_path)</span><span class="s">&#39;);</span>
 <span class="s">            &lt;/script&gt;</span>
 <span class="s">        </span><span class="se">\&quot;\&quot;\&quot;</span><span class="s">); sleep(2)</span>
 <span class="s">        Blink.tools(win)</span>
 
-<span class="s">        Blink.@js_ win console.log(&quot;HELLO!&quot;)</span>
+<span class="s">        Blink.@js_ win console.log(&quot;</span><span class="n">HELLO!</span><span class="s">&quot;)</span>
 <span class="s">        Blink.@js_ win mySlider.oninput = </span>
-<span class="s">            (e) -&gt; (Blink.msg(&quot;sliderChange&quot;, mySlider.value);</span>
-<span class="s">                    console.log(&quot;sent msg to julia!&quot;); e.returnValue=false)</span>
+<span class="s">            (e) -&gt; (Blink.msg(&quot;</span><span class="n">sliderChange</span><span class="s">&quot;, mySlider.value);</span>
+<span class="s">                    console.log(&quot;</span><span class="n">sent</span> <span class="n">msg</span> <span class="n">to</span> <span class="n">julia!</span><span class="s">&quot;); e.returnValue=false)</span>
 
 <span class="s">        function sliderChange(val)</span>
 <span class="s">            r = parse(val)</span>
 <span class="s">            p = Plots.plot(r:2π/100:r+2π, sin);  # Don&#39;t forget this &#39;;&#39; to prevent it opening a plot window!</span>
 <span class="s">            buf = IOBuffer()</span>
 <span class="s">            # invokelatest b/c show compiles more functions, and fails due to world age (https://discourse.julialang.org/t/running-in-world-age-x-while-current-world-is-y-errors/5871/5)</span>
-<span class="s">            Base.invokelatest(show, buf, MIME(&quot;text/html&quot;), p);</span>
+<span class="s">            Base.invokelatest(show, buf, MIME(&quot;</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="s">&quot;), p);</span>
 <span class="s">            plothtml = String(take!(buf))</span>
 
-<span class="s">            Blink.content!(win, &quot;#plotHolder&quot;, plothtml, fade=false)</span>
-<span class="s">        end</span>
+<span class="s">            Blink.content!(win, &quot;</span><span class="c">#plotHolder&quot;, plothtml, fade=false)</span>
+        <span class="k">end</span>
 
-<span class="s">        Blink.handlers(win)[&quot;sliderChange&quot;] = sliderChange</span>
-<span class="s">    </span>
-<span class="s">        # Keep the process alive until the window is closed!</span>
-<span class="s">        while Blink.active(win)</span>
-<span class="s">            sleep(1)</span>
-<span class="s">        end</span>
+        <span class="n">Blink</span><span class="o">.</span><span class="n">handlers</span><span class="p">(</span><span class="n">win</span><span class="p">)[</span><span class="s">&quot;sliderChange&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sliderChange</span>
+    
+        <span class="c"># Keep the process alive until the window is closed!</span>
+        <span class="k">while</span> <span class="n">Blink</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">end</span>
 
-<span class="s">        return 0</span>
-<span class="s">    end</span>
-<span class="s"> &quot;&quot;&quot;</span>
-<span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">end</span>
+ <span class="s">&quot;&quot;&quot;</span>
+<span class="s">)</span>
 </pre></div>
 
 </div>
@@ -13200,14 +13114,12 @@ msg from js: 100
 
 
 <div class="output_area">
-
-<div class="prompt output_prompt">Out[18]:</div>
-
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1519</pre>
+<pre>1543</pre>
 </div>
 
 </div>
@@ -13218,7 +13130,7 @@ msg from js: 100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">build_app_bundle</span><span class="p">(</span>
@@ -13237,29 +13149,26 @@ msg from js: 100
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  Using calculated bundle_identifier: &#39;com.daly.sineplotter&#39;
-~~~~~~ Creating mac app in &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotter.app&#34; ~~~~~~~
+~~~~~~ Creating mac app in &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/SinePlotter.app&#34; ~~~~~~~
 ~~~~~~ Compiling a binary from &#39;OurProject/src/project.jl&#39;... ~~~~~~~
 Julia program file:
-  &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/src/project.jl&#34;
+  &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/SinePlotter.app/Contents/MacOS/applicationbuilderutils.jl&#34;
 C program file:
   &#34;/Users/daly/.julia/v0.6/ApplicationBuilder/src/program.c&#34;
 Build directory:
-  &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotter.app/Contents/MacOS&#34;
+  &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/SinePlotter.app/Contents/MacOS&#34;
 All done
+~~~~~~ Generating &#39;Info.plist&#39; for &#39;com.daly.sineplotter&#39;... ~~~~~~~
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-
-<div class="prompt output_prompt">Out[19]:</div>
-
+<div class="prompt output_prompt">Out[22]:</div>
 
 
 
@@ -13270,14 +13179,11 @@ All done
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
 
-
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>~~~~~~ Generating &#39;Info.plist&#39; for &#39;com.daly.sineplotter&#39;... ~~~~~~~
-~~~~~~ Cleaning up temporary files... ~~~~~~~
-~~~~~~ Done building &#39;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotter.app&#39;! ~~~~~~~
+<pre>~~~~~~ Cleaning up temporary files... ~~~~~~~
+~~~~~~ Done building &#39;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/SinePlotter.app&#39;! ~~~~~~~
 </pre>
 </div>
 </div>
@@ -13288,7 +13194,7 @@ All done
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="sb">`open OurProject/builds/SinePlotter.app`</span><span class="p">)</span>
@@ -13298,8 +13204,22 @@ All done
 </div>
 </div>
 
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that it still is pretty slow.</p>
+<p>I think this is mainly because we haven't statically-compiled anything (we've only lowered our code). However, <code>autosnoop</code> fails for Blink programs right now.</p>
+
+</div>
+</div>
+</div>
+</aside><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13308,7 +13228,8 @@ All done
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13321,25 +13242,24 @@ All done
 </div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Apply that to our program, and this is what we have:</span>
 <span class="n">write</span><span class="p">(</span><span class="s">&quot;OurProject/src/project.jl&quot;</span><span class="p">,</span>
  <span class="n">raw</span><span class="s">&quot;&quot;&quot;</span>
 <span class="s">    using Blink, Plots</span>
-<span class="s">    using ApplicationBuilder</span>
 
 <span class="s">    # THIS IS NEEDED FOR YOUR CODE TO RUN ON ANY COMPUTER</span>
-<span class="s">    if get(ENV, &quot;COMPILING_APPLE_BUNDLE&quot;, &quot;false&quot;) == &quot;true&quot;</span>
-<span class="s">        println(&quot;Overriding Blink dependency paths.&quot;)</span>
-<span class="s">        eval(Blink.AtomShell, :(_electron = &quot;Julia.app/Contents/MacOS/Julia&quot;))</span>
-<span class="s">        eval(Blink.AtomShell, :(mainjs = &quot;main.js&quot;))</span>
-<span class="s">        eval(Blink, :(buzz = &quot;main.html&quot;))</span>
-<span class="s">        eval(Blink, :(resources = Dict(&quot;spinner.css&quot; =&gt; &quot;res/spinner.css&quot;,</span>
-<span class="s">                                 &quot;blink.js&quot; =&gt; &quot;res/blink.js&quot;,</span>
-<span class="s">                                 &quot;blink.css&quot; =&gt; &quot;res/blink.css&quot;,</span>
-<span class="s">                                 &quot;reset.css&quot; =&gt; &quot;res/reset.css&quot;)))</span>
+<span class="s">    if get(ENV, &quot;</span><span class="n">COMPILING_APPLE_BUNDLE</span><span class="s">&quot;, &quot;</span><span class="n">false</span><span class="s">&quot;) == &quot;</span><span class="n">true</span><span class="s">&quot;</span>
+<span class="s">        println(&quot;</span><span class="n">Overriding</span> <span class="n">Blink</span> <span class="n">dependency</span> <span class="n">paths</span><span class="o">.</span><span class="s">&quot;)</span>
+<span class="s">        eval(Blink.AtomShell, :(_electron = &quot;</span><span class="n">Julia</span><span class="o">.</span><span class="n">app</span><span class="o">/</span><span class="n">Contents</span><span class="o">/</span><span class="n">MacOS</span><span class="o">/</span><span class="n">Julia</span><span class="s">&quot;))</span>
+<span class="s">        eval(Blink.AtomShell, :(mainjs = &quot;</span><span class="n">main</span><span class="o">.</span><span class="n">js</span><span class="s">&quot;))</span>
+<span class="s">        eval(Blink, :(buzz = &quot;</span><span class="n">main</span><span class="o">.</span><span class="n">html</span><span class="s">&quot;))</span>
+<span class="s">        eval(Blink, :(resources = Dict(&quot;</span><span class="n">spinner</span><span class="o">.</span><span class="n">css</span><span class="s">&quot; =&gt; &quot;</span><span class="n">res</span><span class="o">/</span><span class="n">spinner</span><span class="o">.</span><span class="n">css</span><span class="s">&quot;,</span>
+<span class="s">                                 &quot;</span><span class="n">blink</span><span class="o">.</span><span class="n">js</span><span class="s">&quot; =&gt; &quot;</span><span class="n">res</span><span class="o">/</span><span class="n">blink</span><span class="o">.</span><span class="n">js</span><span class="s">&quot;,</span>
+<span class="s">                                 &quot;</span><span class="n">blink</span><span class="o">.</span><span class="n">css</span><span class="s">&quot; =&gt; &quot;</span><span class="n">res</span><span class="o">/</span><span class="n">blink</span><span class="o">.</span><span class="n">css</span><span class="s">&quot;,</span>
+<span class="s">                                 &quot;</span><span class="n">reset</span><span class="o">.</span><span class="n">css</span><span class="s">&quot; =&gt; &quot;</span><span class="n">res</span><span class="o">/</span><span class="n">reset</span><span class="o">.</span><span class="n">css</span><span class="s">&quot;)))</span>
 <span class="s">        # Clear out Blink.__inits__, since it will attempt to evaluate hardcoded paths.</span>
 <span class="s">        # (We&#39;ve defined all the variables manually, above: `resources` and `port`.)</span>
 <span class="s">        eval(Blink, :(empty!(__inits__)))</span>
@@ -13350,65 +13270,62 @@ All done
 <span class="s">        using WebSockets</span>
 <span class="s">        eval(WebSockets, :(using HttpServer))  # needed to cause @require lines to execute &amp; compile</span>
 <span class="s">        eval(WebSockets,</span>
-<span class="s">            :(include(joinpath(Pkg.dir(&quot;WebSockets&quot;),&quot;src/HttpServer.jl&quot;))))  # Manually load this from the @requires line.</span>
+<span class="s">            :(include(joinpath(Pkg.dir(&quot;</span><span class="n">WebSockets</span><span class="s">&quot;),&quot;</span><span class="n">src</span><span class="o">/</span><span class="n">HttpServer</span><span class="o">.</span><span class="n">jl</span><span class="s">&quot;))))  # Manually load this from the @requires line.</span>
 
-<span class="s">        println(&quot;Done changing Blink dependencies.&quot;)</span>
+<span class="s">        println(&quot;</span><span class="n">Done</span> <span class="n">changing</span> <span class="n">Blink</span> <span class="n">dependencies</span><span class="o">.</span><span class="s">&quot;)</span>
 <span class="s">        </span>
-<span class="s">        println(&quot;Overriding Plotly dependency paths.&quot;)</span>
-<span class="s">        eval(Plots, :(_plotly_js_path = &quot;plotly-latest.min.js&quot;))</span>
-<span class="s">        println(&quot;Done changing Plotly dependencies.&quot;)</span>
+<span class="s">        println(&quot;</span><span class="n">Overriding</span> <span class="n">Plotly</span> <span class="n">dependency</span> <span class="n">paths</span><span class="o">.</span><span class="s">&quot;)</span>
+<span class="s">        eval(Plots, :(_plotly_js_path = &quot;</span><span class="n">plotly</span><span class="o">-</span><span class="n">latest</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">js</span><span class="s">&quot;))</span>
+<span class="s">        println(&quot;</span><span class="n">Done</span> <span class="n">changing</span> <span class="n">Plotly</span> <span class="n">dependencies</span><span class="o">.</span><span class="s">&quot;)</span>
 <span class="s">    end</span>
 <span class="s">    </span>
 <span class="s">    Base.@ccallable function julia_main(ARGS::Vector{String})::Cint</span>
-<span class="s">        # THIS IS NEEDED FOR YOUR CODE TO RUN ON ANY COMPUTER</span>
-<span class="s">        ApplicationBuilder.App.change_dir_if_bundle()</span>
-
-<span class="s">        # This must be inside app_main() b/c must be after `change_dir_if_bundle()`</span>
+<span class="s">        # This must be inside app_main() so it happens at runtime.</span>
 <span class="s">        Plots.plotly()</span>
 
 <span class="s">        # Set Blink port randomly before anything else, so it&#39;s not compiled with a fixed port.</span>
-<span class="s">        eval(Blink, :(const port = get(ENV, &quot;BLINK_PORT&quot;, rand(2_000:10_000))))</span>
+<span class="s">        eval(Blink, :(const port = get(ENV, &quot;</span><span class="n">BLINK_PORT</span><span class="s">&quot;, rand(2_000:10_000))))</span>
 
 <span class="s">        win = Blink.Window(); sleep(5)</span>
 <span class="s">        Blink.body!(win, </span><span class="se">\&quot;\&quot;\&quot;</span><span class="s"></span>
-<span class="s">            &lt;input id=&quot;mySlider&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;</span>
-<span class="s">            &lt;div id=&quot;plotHolder&quot;&gt;</span>
+<span class="s">            &lt;input id=&quot;</span><span class="n">mySlider</span><span class="s">&quot; type=&quot;</span><span class="n">range</span><span class="s">&quot; min=&quot;</span><span class="mi">1</span><span class="s">&quot; max=&quot;</span><span class="mi">100</span><span class="s">&quot; value=&quot;</span><span class="mi">50</span><span class="s">&quot;&gt;</span>
+<span class="s">            &lt;div id=&quot;</span><span class="n">plotHolder</span><span class="s">&quot;&gt;</span>
 <span class="s">                plot goes here...</span>
 <span class="s">            &lt;/div&gt;</span>
 <span class="s">            &lt;script&gt;</span>
-<span class="s">                mySlider = document.getElementById(&quot;mySlider&quot;)</span>
-<span class="s">                var Plotly = require(&#39;../../../../../</span><span class="si">$</span><span class="p">(</span><span class="n">Plots</span><span class="o">.</span><span class="n">_plotly_js_path</span><span class="p">)</span><span class="s">&#39;);</span>
+<span class="s">                mySlider = document.getElementById(&quot;</span><span class="n">mySlider</span><span class="s">&quot;)</span>
+<span class="s">                var Plotly = require(&#39;../../../../../</span><span class="si">$(Plots._plotly_js_path)</span><span class="s">&#39;);</span>
 <span class="s">            &lt;/script&gt;</span>
 <span class="s">        </span><span class="se">\&quot;\&quot;\&quot;</span><span class="s">); sleep(2)</span>
 <span class="s">        Blink.tools(win)</span>
 
-<span class="s">        Blink.@js_ win console.log(&quot;HELLO!&quot;)</span>
+<span class="s">        Blink.@js_ win console.log(&quot;</span><span class="n">HELLO!</span><span class="s">&quot;)</span>
 <span class="s">        Blink.@js_ win mySlider.oninput = </span>
-<span class="s">            (e) -&gt; (Blink.msg(&quot;sliderChange&quot;, mySlider.value);</span>
-<span class="s">                    console.log(&quot;sent msg to julia!&quot;); e.returnValue=false)</span>
+<span class="s">            (e) -&gt; (Blink.msg(&quot;</span><span class="n">sliderChange</span><span class="s">&quot;, mySlider.value);</span>
+<span class="s">                    console.log(&quot;</span><span class="n">sent</span> <span class="n">msg</span> <span class="n">to</span> <span class="n">julia!</span><span class="s">&quot;); e.returnValue=false)</span>
 
 <span class="s">        function sliderChange(val)</span>
 <span class="s">            r = parse(val)</span>
 <span class="s">            p = Plots.plot(r:2π/100:r+2π, sin);  # Don&#39;t forget this &#39;;&#39; to prevent it opening a plot window!</span>
 <span class="s">            buf = IOBuffer()</span>
 <span class="s">            # invokelatest b/c show compiles more functions, and fails due to world age (https://discourse.julialang.org/t/running-in-world-age-x-while-current-world-is-y-errors/5871/5)</span>
-<span class="s">            Base.invokelatest(show, buf, MIME(&quot;text/html&quot;), p);</span>
+<span class="s">            Base.invokelatest(show, buf, MIME(&quot;</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="s">&quot;), p);</span>
 <span class="s">            plothtml = String(take!(buf))</span>
 
-<span class="s">            Blink.content!(win, &quot;#plotHolder&quot;, plothtml, fade=false)</span>
-<span class="s">        end</span>
+<span class="s">            Blink.content!(win, &quot;</span><span class="c">#plotHolder&quot;, plothtml, fade=false)</span>
+        <span class="k">end</span>
 
-<span class="s">        Blink.handlers(win)[&quot;sliderChange&quot;] = sliderChange</span>
-<span class="s">    </span>
-<span class="s">        # Keep the process alive until the window is closed!</span>
-<span class="s">        while Blink.active(win)</span>
-<span class="s">            sleep(1)</span>
-<span class="s">        end</span>
+        <span class="n">Blink</span><span class="o">.</span><span class="n">handlers</span><span class="p">(</span><span class="n">win</span><span class="p">)[</span><span class="s">&quot;sliderChange&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sliderChange</span>
+    
+        <span class="c"># Keep the process alive until the window is closed!</span>
+        <span class="k">while</span> <span class="n">Blink</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">end</span>
 
-<span class="s">        return 0</span>
-<span class="s">    end</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">end</span>
 <span class="s">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<span class="s">)</span>
 </pre></div>
 
 </div>
@@ -13420,14 +13337,12 @@ All done
 
 
 <div class="output_area">
-
-<div class="prompt output_prompt">Out[22]:</div>
-
+<div class="prompt output_prompt">Out[24]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3493</pre>
+<pre>3330</pre>
 </div>
 
 </div>
@@ -13438,11 +13353,11 @@ All done
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Build a distributable SinPlotter.app!</span>
-<span class="k">using</span> <span class="n">ApplicationBuilder</span><span class="p">;</span> <span class="k">using</span> <span class="n">BuildApp</span>
+<span class="k">using</span> <span class="n">ApplicationBuilder</span>
 <span class="k">using</span> <span class="n">Blink</span><span class="p">,</span> <span class="n">Plots</span>
 <span class="n">blinkPkg</span> <span class="o">=</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">dir</span><span class="p">(</span><span class="s">&quot;Blink&quot;</span><span class="p">)</span>
 <span class="n">macroToolsPkg</span> <span class="o">=</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">dir</span><span class="p">(</span><span class="s">&quot;MacroTools&quot;</span><span class="p">)</span>
@@ -13476,13 +13391,11 @@ All done
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  Using calculated bundle_identifier: &#39;com.daly.sineplotterbundled&#39;
-~~~~~~ Creating mac app in &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotterBundled.app&#34; ~~~~~~~
+~~~~~~ Creating mac app in &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/SinePlotterBundled.app&#34; ~~~~~~~
 ~~~~~~ Copying user-specified libraries &amp; resources to bundle... ~~~~~~~
   Resources:
     - /Users/daly/.julia/v0.6/Blink/deps/Julia.app ............... done
@@ -13495,24 +13408,61 @@ All done
     - /Users/daly/.julia/v0.6/MbedTLS/src/../deps/usr/lib/libmbedcrypto.2.11.0.dylib ............... done
 ~~~~~~ Compiling a binary from &#39;OurProject/src/project.jl&#39;... ~~~~~~~
 Julia program file:
-  &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/src/project.jl&#34;
+  &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/SinePlotterBundled.app/Contents/MacOS/applicationbuilderutils.jl&#34;
 C program file:
   &#34;/Users/daly/.julia/v0.6/ApplicationBuilder/src/program.c&#34;
 Build directory:
-  &#34;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotterBundled.app/Contents/MacOS&#34;
+  &#34;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/SinePlotterBundled.app/Contents/MacOS&#34;
 Overriding Blink dependency paths.
-Done changing Blink dependencies.
-Overriding Plotly dependency paths.
-Done changing Plotly dependencies.
-All done
 </pre>
 </div>
 </div>
 
 <div class="output_area">
+<div class="prompt"></div>
 
-<div class="prompt output_prompt">Out[23]:</div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING: redefining constant _electron
+WARNING: redefining constant mainjs
+WARNING: redefining constant resources
+WARNING: redefining constant lib
+WARNING: redefining constant libmbedcrypto
+</pre>
+</div>
+</div>
 
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Done changing Blink dependencies.
+Overriding Plotly dependency paths.
+Done changing Plotly dependencies.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>INFO: Loading HttpServer methods...
+WARNING: redefining constant _plotly_js_path
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>All done
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -13523,14 +13473,12 @@ All done
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>~~~~~~ Generating &#39;Info.plist&#39; for &#39;com.daly.sineplotterbundled&#39;... ~~~~~~~
 ~~~~~~ Cleaning up temporary files... ~~~~~~~
-~~~~~~ Done building &#39;/Users/daly/Documents/developer/talks/jupyter/OurProject/builds/SinePlotterBundled.app&#39;! ~~~~~~~
+~~~~~~ Done building &#39;/Users/daly/Documents/developer/talks/juliaCon2018/notebook/OurProject/builds/SinePlotterBundled.app&#39;! ~~~~~~~
 </pre>
 </div>
 </div>
@@ -13541,7 +13489,7 @@ All done
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="sb">`open OurProject/builds/`</span><span class="p">)</span>
@@ -13552,7 +13500,8 @@ All done
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13576,7 +13525,8 @@ All done
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13614,7 +13564,8 @@ require(
             progress: true,
             history: true,
 
-            transition: "slide",
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
@@ -13634,25 +13585,13 @@ require(
 
         Reveal.addEventListener('slidechanged', update);
 
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
-        }
+        var update_scroll = function(event){
+          $(".reveal").scrollTop(0);
+        };
 
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
+        Reveal.addEventListener('slidechanged', update_scroll);
 
     }
-
 );
 </script>
 
